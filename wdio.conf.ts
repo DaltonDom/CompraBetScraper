@@ -21,7 +21,10 @@ export const config = {
     waitforTimeout: 10000,
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
-    services: ['chromedriver'],
+    services: [
+        ['chromedriver', {
+        args: ['--silent']
+    }]],
     framework: 'mocha',
     reporters: ['spec'],
     mochaOpts: {
