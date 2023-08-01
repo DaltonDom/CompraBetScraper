@@ -1,2 +1,2 @@
 # CompraBetScraper
-# npx wdio wdio.conf.ts (Run scraper)
+npx wdio wdio.conf.ts (Run scraper)
