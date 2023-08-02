@@ -7,21 +7,25 @@ describe('Web scraping betting site', () => {
     await browser.url('https://f12.bet/prejogo/#league/2417-undefined');
     await browser.pause(2000)
     // Store each match data
-    const gamesData = [];
+    //const gamesData = [];
     // Extract information from the website
-    const homeTeamArray = await f12Page.homeTeams
-    const len = homeTeamArray.length
+    //const homeTeamArray = await f12Page.homeTeams
+    //const len = homeTeamArray.length
 
-    for(let i = 0; i < len; i++) {
+    /**for(let i = 0; i < len; i++) {
       const gameEntry = {
-        homeTeam: await homeTeamArray[i].getText(),
-        awayTeam: await f12Page.awayTeams[i].getText()
+        HomeTeam: await homeTeamArray[i].getText(),
+        AwayTeam: await f12Page.awayTeams[i].getText(),
+        HomeWin: await f12Page.homeOdds[i].getText(),
+        Tie: await f12Page.tieOdds[i].getText(),
+        AwayWin: await f12Page.awayOdds[i].getText(),
       }
       gamesData.push(gameEntry)
-    }
+    } **/
+    console.log(f12Page.getAllData)
 
     // Verify Data
-    console.log(gamesData)
+    //console.log(gamesData)
     // Close the session
     await browser.deleteSession();
   });
