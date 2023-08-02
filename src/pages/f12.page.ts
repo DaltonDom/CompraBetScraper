@@ -13,6 +13,8 @@ class f12 {
     let homeTeamsArray = await this.homeTeams;
     let awayTeamsArray = await this.awayTeams;
     let homeOddsArray = await this.homeOdds;
+    let tieOddsArray = await this.tieOdds;
+    let awayOddsArray = await this.awayOdds;
 
     const gamesData = [];
     const length = homeTeamsArray.length;
@@ -21,7 +23,9 @@ class f12 {
       const gameEntry = {
         HomeTeam: await homeTeamsArray[i].getText(),
         AwayTeam: await awayTeamsArray[i].getText(),
-        HomeWin: await homeOddsArray[i].getText()
+        HomeWin: await homeOddsArray[i].getText(),
+        Tie: await tieOddsArray[i].getText(),
+        AwayWin: await awayOddsArray[i].getText()
       }
       gamesData.push(gameEntry)
     }

@@ -15,7 +15,7 @@ export const config = {
         // capabilities for local browser web tests
         browserName: 'chrome' // or "firefox", "microsoftedge", "safari"
     }],
-    logLevel: 'info',
+    logLevel: 'warn',
     bail: 0,
     baseUrl: 'http://localhost',
     waitforTimeout: 10000,
