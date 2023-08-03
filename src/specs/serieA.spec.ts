@@ -1,15 +1,15 @@
-import f12Page from "../pages/f12.page";
+import serieA from "../pages/serieA.page";
 
 describe('Web scraping betting site', () => {
-  it('Scrape F12 betting', async () => {
+  it('Scrape Serie A betting', async () => {
 
     // Navigate to the website you want to scrape
     await browser.url('https://f12.bet/prejogo/#league/2417-undefined');
     await browser.pause(2000)
 
     // Verify Data
-    const gamesData = await f12Page.getAllData();
-    console.log("F12")
+    const gamesData = await serieA.getAllData();
+    console.log("Serie A")
     console.log("-------")
     console.log(gamesData);
 

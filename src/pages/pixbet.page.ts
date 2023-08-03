@@ -9,6 +9,30 @@ class pixbet {
   get tieOdds (): ChainablePromiseArray<ElementArray> { return $$('')}
   get awayOdds (): ChainablePromiseArray<ElementArray> { return $$('')}
 
+  async getAllData(): Promise<any[]>
+  {
+    let homeTeamsArray = await this.homeTeams;
+    let awayTeamsArray = await this.awayTeams;
+    let homeOddsArray = await this.homeOdds;
+    let tieOddsArray = await this.tieOdds;
+    let awayOddsArray = await this.awayOdds;
+
+    const gamesData = [];
+    const length = homeTeamsArray.length;
+
+    for(let i = 0; i < length; i++) {
+      const gameEntry = {
+        HomeTeam: await homeTeamsArray[i].getText(),
+        AwayTeam: await awayTeamsArray[i].getText(),
+        HomeWin: await homeOddsArray[i].getText(),
+        Tie: await tieOddsArray[i].getText(),
+        AwayWin: await awayOddsArray[i].getText()
+      }
+      gamesData.push(gameEntry)
+    }
+    return gamesData
+  }
+
 }
 
 export default new pixbet()
