@@ -13,7 +13,11 @@ export const config = {
     maxInstances: 10,
     capabilities: [{
         // capabilities for local browser web tests
-        browserName: 'chrome' // or "firefox", "microsoftedge", "safari"
+        browserName: 'chrome', // or "firefox", "microsoftedge", "safari"
+        'goog:chromeOptions': {
+            // Add the detach option to keep the browser open
+            args: ['--detach']
+          }
     }],
     logLevel: 'warn',
     bail: 0,

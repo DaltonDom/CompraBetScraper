@@ -63,7 +63,7 @@ class betano {
   
   get popupBtn (): ChainablePromiseElement<any> { return $('//*[@id="landing-page-modal"]/div/div[1]/button')}
 
-  get scrollElement (): ChainablePromiseElement<any> { return $('/html/body/div[1]/div/section[2]/div[4]/div[2]/section/div[3]/div/div/div[2]')}
+  get scrollElement (): ChainablePromiseElement<any> { return $('/html/body/div[1]/div/section[2]/div[5]/div/div/div[2]/div[1]/div[2]')}
 }
 
 export default new betano()

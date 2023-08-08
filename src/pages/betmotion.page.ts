@@ -40,10 +40,8 @@ class pixbet {
     const gamesData = [];
     const length = oddsArray.length;
 
-    for(let i = 0; i < length; i++) {
-      if (i % 2 == 0) {
-        gamesData.push(oddsArray[i].getText())
-      }
+    for(let i = 0; i < length; i = i + 3) {
+      gamesData.push(oddsArray[i].getText())
     }
     return gamesData
   }
@@ -54,10 +52,8 @@ class pixbet {
     const gamesData = [];
     const length = oddsArray.length;
 
-    for(let i = 0; i < length; i++) {
-      if (i % 3 == 0) {
-        gamesData.push(oddsArray[i].getText())
-      }
+    for(let i = 1; i < length; i = i + 3) {
+      gamesData.push(oddsArray[i].getText())
     }
     return gamesData
   }
@@ -68,10 +64,32 @@ class pixbet {
     const gamesData = [];
     const length = oddsArray.length;
 
+    for(let i = 2; i < length; i = i + 3) {
+      gamesData.push(oddsArray[i].getText())
+    }
+    return gamesData
+  }
+
+  async getAllData(): Promise<any[]>
+  {
+    let homeTeamsArray = await this.getHomeTeamNames();
+    let awayTeamsArray = await this.getAwayTeamNames();
+    let homeOddsArray = await this.getHomeOdds();
+    let tieOddsArray = await this.getTieOdds();
+    let awayOddsArray = await this.getAwayOdds();
+
+    const gamesData = [];
+    const length = homeTeamsArray.length;
+
     for(let i = 0; i < length; i++) {
-      if (i % 4 == 0) {
-        gamesData.push(oddsArray[i].getText())
+      const gameEntry = {
+        HomeTeam: await homeTeamsArray[i],
+        AwayTeam: await awayTeamsArray[i],
+        HomeWin: await homeOddsArray[i],
+        Tie: await tieOddsArray[i],
+        AwayWin: await awayOddsArray[i]
       }
+      gamesData.push(gameEntry)
     }
     return gamesData
   }
