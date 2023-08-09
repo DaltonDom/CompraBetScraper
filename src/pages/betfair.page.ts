@@ -34,6 +34,7 @@ class betfair {
   }
 
   get allOdds (): ChainablePromiseArray<ElementArray> { return $$('//*[contains(@class, "ui-runner-price")]')}
+
   async getHomeOdds(): Promise<any[]>
   {
     let oddsArray = await this.allOdds;
@@ -41,10 +42,8 @@ class betfair {
     const gamesData = [];
     const length = oddsArray.length;
 
-    for(let i = 0; i < length; i++) {
-      if (i % 3 == 0) {
-        gamesData.push(oddsArray[i].getText())
-      }
+    for(let i = 2; i < length; i = i + 5) {
+      gamesData.push(oddsArray[i].getText())
     }
     return gamesData
   }
@@ -55,10 +54,8 @@ class betfair {
     const gamesData = [];
     const length = oddsArray.length;
 
-    for(let i = 0; i < length; i++) {
-      if (i % 4 == 0) {
-        gamesData.push(oddsArray[i].getText())
-      }
+    for(let i = 3; i < length; i = i + 5) {
+      gamesData.push(oddsArray[i].getText())
     }
     return gamesData
   }
@@ -69,10 +66,8 @@ class betfair {
     const gamesData = [];
     const length = oddsArray.length;
 
-    for(let i = 0; i < length; i++) {
-      if (i % 5 == 0) {
-        gamesData.push(oddsArray[i].getText())
-      }
+    for(let i = 4; i < length; i = i + 5) {
+      gamesData.push(oddsArray[i].getText())
     }
     return gamesData
   }
@@ -100,6 +95,7 @@ class betfair {
     }
     return gamesData
   }
+
 }
 
 export default new betfair()
