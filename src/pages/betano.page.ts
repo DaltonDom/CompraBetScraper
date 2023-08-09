@@ -10,10 +10,8 @@ class betano {
     const gamesData = [];
     const length = teamsArray.length;
 
-    for(let i = 0; i < length; i++) {
-      if (i % 2 == 0) {
-        gamesData.push(teamsArray[i].getText())
-      }
+    for(let i = 0; i < length; i = i + 2) {
+      gamesData.push(await teamsArray[i].getText())
     }
     return gamesData
   }
@@ -25,10 +23,8 @@ class betano {
     const gamesData = [];
     const length = teamsArray.length;
 
-    for(let i = 0; i < length; i++) {
-      if (i % 2 != 0) {
-        gamesData.push(teamsArray[i].getText())
-      }
+    for(let i = 1; i < length; i = i + 2) {
+      gamesData.push(teamsArray[i].getText())
     }
     return gamesData
   }
