@@ -10,7 +10,13 @@ export const config = {
     specs: [
         './src/specs/**/*.ts'
     ],
-    maxInstances: 10,
+    suites: {
+        workflow: [
+            './src/specs/f12.spec.ts',
+            './src/specs/collectData.spec.ts'
+        ],
+    },
+    maxInstances: 5,
     capabilities: [{
         // capabilities for local browser web tests
         browserName: 'chrome', // or "firefox", "microsoftedge", "safari"
