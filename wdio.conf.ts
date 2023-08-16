@@ -16,13 +16,18 @@ export const config = {
             './src/specs/collectData.spec.ts'
         ],
     },
-    maxInstances: 5,
+    maxInstances: 2,
     capabilities: [{
-        // capabilities for local browser web tests
-        browserName: 'chrome', // or "firefox", "microsoftedge", "safari"
+        browserName: 'chrome',
+        acceptInsecureCerts: true,
         'goog:chromeOptions': {
-            // Add the detach option to keep the browser open
-            args: ['--detach']
+            args: [
+                '--no-sandbox',
+                '--disable-infobars',
+                '--headless',
+                '--disable-gpu',
+                '--window-size=1440,735'
+            ],
           }
     }],
     logLevel: 'warn',
